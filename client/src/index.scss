@@ -1,0 +1,22 @@
+@import '~carbon-components/scss/globals/scss/styles.scss';
+
+html, body {
+    background-color: #262626;
+    height: 100%;
+}
+
+body {
+    overflow-y: scroll;
+}
+
+.app-container {
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #282828;
+}

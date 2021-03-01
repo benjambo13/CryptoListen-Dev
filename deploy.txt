@@ -1,0 +1,5 @@
+'npm run-script build" inside of the client folder
+
+move the build folder into the server directory
+
+and then push to github and deploy

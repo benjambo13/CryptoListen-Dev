@@ -1,0 +1,105 @@
+.mining-container {
+    padding: 20px 60px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.mining-control-button {
+    font-size: 16px;
+    height: 60px;
+    width: 200px;
+    max-width: none;
+}
+
+.mining-stop {
+    float: right;
+}
+
+.mining-controls {
+    display: flex;
+}
+
+.mining-controls {
+    .bx--form-item {
+        display: block;
+        margin: 0 20px;
+        text-align: center;
+    }
+
+    .bx--slider {
+        max-width: none;
+    }
+
+    .bx--label {
+        color: white;
+    }
+
+    .bx--slider-text-input {
+        display: none;
+    }
+
+    .bx--slider__range-label:last-of-type {
+        margin-right: 0;
+    }
+
+    .bx--slider__range-label {
+        color: white;
+    }
+
+    .bx--slider__filled-track, .bx--slider__thumb {
+        background: blue;
+    }
+
+    .bx--slider__track:before {
+        display: none;
+    }
+}
+
+.mining-dis {
+    margin-top: 15px;
+    text-align: center;
+
+    p {
+        font-size: 12px;
+    }
+}
+
+
+.mining-stats {
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+    margin: 0px -35px;
+
+    .bx--tile {
+        width: 300px;
+        height: 300px;
+        margin: 28px 28px;
+    }
+    
+    .bx--tile h2 {
+        font-size: 16px;
+    }
+    
+    .bx--tile p {
+        margin-top: 82px;
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .mining-dot {
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-top: 58px;
+        margin-left: 72px;
+        text-align: center;
+        padding-top: 38px;
+        font-size: 40px;
+    }
+}
+

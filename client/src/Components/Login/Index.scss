@@ -1,0 +1,59 @@
+.index-container {
+    height: 100vh;
+    padding-top: 50px;
+    text-align: center;
+
+    .title {
+        color: white;
+        margin-bottom: 50px;
+    }
+
+    .warning {
+        color: red;
+        margin-top: 64px;
+    }
+
+    .bx--tabs--scrollable {
+        margin: auto;
+        width: 600px;
+    }
+    
+    .bx--tabs--scrollable__nav-link {
+        width: 300px !important;
+        font-size: 15px !important;
+    }
+    
+    .bx--tab-content {
+        padding: 0;
+    }
+    
+    .bx--label {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .bx--text-input {
+        background-color: #E6E6E6;
+    }
+    
+    .login-tile, .register-tile {
+        background-color: #F6F6F6;
+        padding: 20px;
+        width: 600px;
+        margin: auto;
+        text-align: left;
+    }
+    
+    .login-tile .bx--btn--primary {
+        font-size: 18px;
+    }
+    
+    .login-username {
+        margin-top: 10px;
+    }
+    
+    .login-password {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}

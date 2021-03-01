@@ -1,0 +1,20 @@
+.Main {
+    color: white;
+
+    .bx--tab-content {
+        padding: 0;
+    }
+    
+    .bx--tabs--scrollable {
+        height: 30px;
+        margin-top: -2.4rem;
+    }
+    
+    .bx--tabs--scrollable__nav-link {
+        color: white !important;
+        width: 170px !important;
+        font-size: 15px !important;
+        z-index: 2;
+    }
+}
+

