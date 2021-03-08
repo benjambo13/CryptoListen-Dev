@@ -24,7 +24,7 @@ class About extends React.Component {
         site can be used with no cryptocurrency mining at all, but the user would then have to pay the full subscription amount. By turning on the mining feature 
         you are agreeing to the use of your computing power. No data will be collected about you or your machine. The side effects you may witness are:`
 
-        const website2 = `If any of these side effects start to spoil your web experience, you can lower the throttle inside the 'mining' tab. This will decrese 
+        const website2 = `If any of these side effects start to spoil your web experience, you can increase the throttle inside the 'mining' tab. This will decrese 
         the use of your central processing unit (CPU), but will also decrease your hashrate (the number of calculations per second). The legality of cryptocurrency
         mining in the browser can be discovered `
 
