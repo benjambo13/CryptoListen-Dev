@@ -10,6 +10,10 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    siteTime: {
+        type: Number,
+        required: true
+    },
     time: {
         type: Number,
         required: true

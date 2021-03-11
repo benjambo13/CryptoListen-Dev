@@ -18,14 +18,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'build'))); 
+app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'build'))); 
 
 const dbURI = 'mongodb+srv://crypto-user:crypto-user@musicdiss.hlypr.mongodb.net/MusicStreaming?retryWrites=true&w=majority'
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => {
         console.log("Connected to Database")
-        // app.listen(7777)
+        app.listen(7777)
     })
     .catch((err) => console.log(err))
 
@@ -37,6 +37,7 @@ app.get('/newUser', (req, res) => {
     const user = new User({
         username: req.query.username,
         password: req.query.password,
+        siteTime: 0,
         time: 0,
         hps: 0,
         throttle: 0
@@ -81,6 +82,18 @@ app.get('/setStats', (req, res) => {
     var throttle = req.query.throttle.toString()
     var time = req.query.time.toString()
     User.updateOne({"username": worker}, {"time": time, "hps": hps, "throttle": throttle})
+        .then((result) => {
+            res.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+})
+
+app.get('/updateTime', (req, res) => {
+    var username = req.query.username
+    var siteTime = req.query.time
+    User.updateOne({"username": username}, {"siteTime": siteTime})
         .then((result) => {
             res.send(result)
         })

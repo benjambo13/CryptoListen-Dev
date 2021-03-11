@@ -4,10 +4,38 @@ class Auth {
     constructor() {
         this.authenticated = false
         this.username = ''
+        this.userTime = 0
     }
 
     getUsername = () => {
         return this.username
+    }
+
+    getInitialTime = () => {
+        axios.get('/getDBStats', { params: { username: this.username }})
+        .then((result) => {
+            this.userTime = result.data.siteTime
+        })
+    }
+
+    setTimer = () => {
+        this.getInitialTime()
+        this.timeInterval = setInterval(() =>  this.timeHandler(), 30000);
+    }
+
+    endTimer = () => {
+        this.userTime = 0
+        clearInterval(this.timeInterval);
+    }
+
+    timeHandler = () => {
+        this.userTime += 30
+        if (this.userTime % 30 === 0) {
+            axios.get('/updateTime', { params: { time: this.userTime, username: this.username }})
+            .catch((err) => {
+                console.log(err)
+            })
+        }
     }
 
     async login(cb, username, password) {
@@ -17,6 +45,7 @@ class Auth {
                     this.authenticated = true
                     this.username = username
                     window.username = username
+                    this.setTimer()
                     cb()
                     return true
                 } else {
@@ -32,6 +61,7 @@ class Auth {
         this.authenticated = false
         this.username = ''
         window.username = ''
+        this.endTimer()
         cb()
     }
 
