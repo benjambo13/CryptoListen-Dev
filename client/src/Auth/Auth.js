@@ -20,22 +20,20 @@ class Auth {
 
     setTimer = () => {
         this.getInitialTime()
-        this.timeInterval = setInterval(() =>  this.timeHandler(), 30000);
+        this.sessionTimeInterval = setInterval(() =>  this.timeHandler(), 30000);
     }
 
     endTimer = () => {
         this.userTime = 0
-        clearInterval(this.timeInterval);
+        clearInterval(this.sessionTimeInterval);
     }
 
     timeHandler = () => {
         this.userTime += 30
-        if (this.userTime % 30 === 0) {
-            axios.get('/updateTime', { params: { time: this.userTime, username: this.username }})
-            .catch((err) => {
-                console.log(err)
-            })
-        }
+        axios.get('/updateTime', { params: { time: this.userTime, username: this.username }})
+        .catch((err) => {
+            console.log(err)
+        })
     }
 
     async login(cb, username, password) {
