@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(express.static(path.join(__dirname, 'build'))); 
+app.use(express.static(path.join(__dirname, 'build'))); 
 
 const dbURI = 'mongodb+srv://crypto-user:crypto-user@musicdiss.hlypr.mongodb.net/MusicStreaming?retryWrites=true&w=majority'
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })

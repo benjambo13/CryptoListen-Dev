@@ -70,6 +70,7 @@ class Auth {
                     this.authenticated = true
                     this.username = username
                     window.username = username
+                    this.setTimer()
                     cb()
                 } else {
                     return false
