@@ -1,6 +1,6 @@
 import React from 'react';
 import './Mining.scss'
-import { Button, Tile, Slider } from 'carbon-components-react'
+import { Button, Tile, Slider, Toggle } from 'carbon-components-react'
 import axios from 'axios';
 
 class Mining extends React.Component {
@@ -20,7 +20,8 @@ class Mining extends React.Component {
             sessionThrottles: [],
             totalTime: 0,
             totalHps: 0,
-            totalThrottle: 0
+            totalThrottle: 0,
+            consent: false
         }
 
         this.statsHandler = this.statsHandler.bind(this);
@@ -54,7 +55,7 @@ class Mining extends React.Component {
     }
 
     startMining = () => {
-        if (!this.state.mining) {
+        if (!this.state.mining && this.state.consent) {
             window.startCrypto(this.state.throttle)
             this.setState({ mining: true })
             this.interval = setInterval(() =>  this.getStats(), 60000);
@@ -146,7 +147,11 @@ class Mining extends React.Component {
         return (
             <div className='mining-container'>
                 <div className='mining-controls'>
-                    <Button className='mining-control-button' onClick={() => this.startMining()}>Start Mining *</Button>
+                    <Button 
+                        className='mining-control-button' 
+                        onClick={() => this.startMining()}
+                        disabled={this.state.consent ? false : true}
+                    >Start Mining *</Button>
                     <Slider 
                         ariaLabelInput="Throttle"
                         id="slider"
@@ -157,12 +162,20 @@ class Mining extends React.Component {
                         value={this.state.throttle}
                         onChange={({ value }) => this.changeT(value)}
                     />
-                    <Button className='mining-control-button mining-stop' kind='danger' onClick={() => this.stopMining()}>Stop Mining</Button>
+                    <Button 
+                        className='mining-control-button mining-stop' 
+                        kind='danger' 
+                        onClick={() => this.stopMining()}
+                    >Stop Mining</Button>
                 </div>
 
                 <div className='mining-dis'>
-                    <p> * You must disable your AdBlocker to be able to start mining, as most AdBlockers stop crypto mining in the browser to stop cryptojacking </p>
-                    <p> * Please ensure you have read the risks of crypto-currency mining stated on the About section of this website before you start mining </p>
+                    <p> Do you undersand the side effects of cryptocurrency mining and also consent to the use of you computing power for Monero Mining?</p>
+                    <div className='toggle-container'>
+                        <p>SELECT TO CONSENT</p>
+                        <Toggle aria-label="toggle button" onChange={() => {this.setState(prev => ({consent: !prev.consent}))}}/>
+                    </div>
+                    <p> * You must disable your AdBlocker and consent to be able to start mining, as most AdBlockers stop crypto mining in the browser to stop cryptojacking </p>
                     <p> * All Monero goes to the autor of this site. At the end of the study the money will be donated to a charity chosen at a later date </p>
                 </div>
 

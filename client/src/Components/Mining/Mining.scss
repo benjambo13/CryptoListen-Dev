@@ -58,9 +58,31 @@
 .mining-dis {
     margin-top: 15px;
     text-align: center;
+    color: white;
 
     p {
         font-size: 12px;
+    }
+
+    .toggle-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        .bx--form-item {
+            flex: none;
+            margin-top: -10px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+    }
+
+    .bx--toggle__text--off, .bx--toggle__text--on {
+        display: none;
     }
 }
 

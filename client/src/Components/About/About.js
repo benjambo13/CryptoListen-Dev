@@ -48,6 +48,10 @@ class About extends React.Component {
                     <li>An increase in power usage</li>
                 </ul>
                 <p>{website2}<a href="https://doi.org/10.31585/jbba-3-2-(1)2020" target="_blank" rel="noopener noreferrer">here</a>.</p>
+
+                <p>All music available on this website comes from
+                    <a href="https://www.bensound.com/royalty-free-music" target="_blank" rel="noopener noreferrer"> Bensound Royalty Free Music</a>
+                . All rights are reserved to them.</p>
             </div>
         )
     }
