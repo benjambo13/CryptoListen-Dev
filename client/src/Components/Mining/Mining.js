@@ -59,7 +59,6 @@ class Mining extends React.Component {
             window.startCrypto(this.state.throttle)
             this.setState({ mining: true })
             this.interval = setInterval(() =>  this.getStats(), 60000);
-            this.timeInterval = setInterval(() =>  this.timeHandler(), 1000);
             this.statsInterval = setInterval(() =>  this.statsHandler(), 60000);
         }
     }
@@ -98,13 +97,11 @@ class Mining extends React.Component {
         return (this.state.totalHash - this.state.initialHashes)
     }
 
-    timeHandler = () => {
-        this.setState(prev => ({ time: prev.time + 1 }))
-    }
-
     async statsHandler() {
         this.setState({hashRates : [...this.state.hashRates, this.state.poolHashrate]})
         this.setState({sessionThrottles : [...this.state.sessionThrottles, this.state.throttle]})
+        this.setState(prev => ({ time: prev.time + 60 }))
+        console.log(this.state.time)
 
         var hashsum = 0
         for (const x of this.state.hashRates) {
@@ -135,10 +132,9 @@ class Mining extends React.Component {
 
     getTime = () => {
         var total  = this.state.time
-        var seconds = total % 60
         var minutes = Math.floor(total / 60) % 60
         var hours = Math.floor(total / 3600)
-        var time = hours.toString() + 'h ' + minutes.toString() + 'm ' + seconds.toString() + 's '
+        var time = hours.toString() + 'h ' + minutes.toString() + 'm '
 
         return time
     }
@@ -173,7 +169,7 @@ class Mining extends React.Component {
                     <p> Do you undersand the side effects of cryptocurrency mining and also consent to the use of you computing power for Monero Mining?</p>
                     <div className='toggle-container'>
                         <p>SELECT TO CONSENT</p>
-                        <Toggle aria-label="toggle button" onChange={() => {this.setState(prev => ({consent: !prev.consent}))}}/>
+                        <Toggle aria-label="toggle button" id="toggle" onChange={() => {this.setState(prev => ({consent: !prev.consent}))}}/>
                     </div>
                     <p> * You must disable your AdBlocker and consent to be able to start mining, as most AdBlockers stop crypto mining in the browser to stop cryptojacking </p>
                     <p> * All Monero goes to the autor of this site. At the end of the study the money will be donated to a charity chosen at a later date </p>

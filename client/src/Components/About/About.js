@@ -12,12 +12,12 @@ class About extends React.Component {
         completed electronically. A crucial part of this process is called cryptocurrency mining. Miners are responsible for solving complex mathematical problems 
         using mining software. This is how a transaction is verified on the network and sent to the blockchain. The blockchain stores all transactions by users 
         for that specific cryptocurrency. Miners are then rewarded for their work with cryptocurrencies. Blocks can hold thousands of transactions. This website 
-        will be mining the cryptocurrency Monero. Given the current state of Monero (XMR) and an average hashrate of 500, after 24 hours of mining, roughly 0.0002XMR 
+        will be mining the cryptocurrency Monero. Given the current state of Monero (XMR) and an average hashrate of 500 H/s, after 24 hours of mining, roughly 0.0002XMR 
         (3 pence) will be mined. This value can change dramatically due to market price and mining pool performance.` 
 
         const throttle = `In the mining section of this website you are able to control the throttle of the mining. The throttle is the percentage of time that the 
         user's CPU is resting. For example, if the throttle is set to 60, the user will be mining 40% of the time and resting for the other 60%. The greater the throttle 
-        the less crypto mined.`
+        the less crypto mined. If you wish to REDUCE the side effects of mining, INCREASE the throttle.`
 
         const website = `This website is a music streaming web application which uses crytocurrency mining as its monetisation method. The aim of this website is 
         to simulate a monthly subsciption service such as Spotify or Netflix and then reduce that subscription by the amount of crypto mined during that month. The 
@@ -27,6 +27,8 @@ class About extends React.Component {
         const website2 = `If any of these side effects start to spoil your web experience, you can increase the throttle inside the 'mining' tab. This will decrese 
         the use of your central processing unit (CPU), but will also decrease your hashrate (the number of calculations per second). The legality of cryptocurrency
         mining in the browser can be discovered `
+
+        const dataCollection = `All data collected will be deleted at the end of the study. The only data collected is: `
 
         return (
             <div className='about-container'>
@@ -52,6 +54,14 @@ class About extends React.Component {
                 <p>All music available on this website comes from
                     <a href="https://www.bensound.com/royalty-free-music" target="_blank" rel="noopener noreferrer"> Bensound Royalty Free Music</a>
                 . All rights are reserved to them.</p>
+
+                <h1>Data Collection</h1>
+                <p>{dataCollection}</p>
+                <ul>
+                    <li>The amount of time spent on the website (in the background is included)</li>
+                    <li>The amount of time spent mining on the website (in the background is included)</li>
+                    <li>Your cryptocurrency mining stats</li>
+                </ul>
             </div>
         )
     }

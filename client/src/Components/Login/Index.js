@@ -19,7 +19,7 @@ class Index extends React.Component {
                         <Register />
                     </Tab>
                 </Tabs>
-                <h1 className='warning'>IMPORTANT: YOU MUST DISABLE ADBLOCKER TO USE THIS WEBSITE</h1>
+                <h5 className='warning'>IMPORTANT: YOU MUST DISABLE ADBLOCKER TO USE THIS WEBSITE</h5>
             </div>
         )
     }

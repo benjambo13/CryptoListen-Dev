@@ -18,14 +18,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'build'))); 
 
 const dbURI = 'mongodb+srv://crypto-user:crypto-user@musicdiss.hlypr.mongodb.net/MusicStreaming?retryWrites=true&w=majority'
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => {
         console.log("Connected to Database")
-        app.listen(7777)
+        // app.listen(7777)
     })
     .catch((err) => console.log(err))
 
