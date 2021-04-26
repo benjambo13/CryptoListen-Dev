@@ -169,7 +169,12 @@ class Mining extends React.Component {
                     <p> Do you undersand the side effects of cryptocurrency mining and also consent to the use of you computing power for Monero Mining?</p>
                     <div className='toggle-container'>
                         <p>SELECT TO CONSENT</p>
-                        <Toggle aria-label="toggle button" id="toggle" onChange={() => {this.setState(prev => ({consent: !prev.consent}))}}/>
+                        <Toggle aria-label="toggle button" id="toggle" onChange={() => {
+                                this.setState(prev => ({consent: !prev.consent}))
+                                if (this.state.mining)
+                                    this.stopMining()
+                            }}
+                        />
                     </div>
                     <p> * You must disable your AdBlocker and consent to be able to start mining, as most AdBlockers stop crypto mining in the browser to stop cryptojacking </p>
                     <p> * All Monero goes to the autor of this site. At the end of the study the money will be donated to a charity chosen at a later date </p>

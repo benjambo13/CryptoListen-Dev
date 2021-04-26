@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import './index.scss';
 import App from './Components/App';
 import Index from './Components/Login/Index'
@@ -15,7 +15,7 @@ ReactDOM.render(
       <Switch>
         {isMobile ? <Mobile /> : <Route exact path='/' component={Index}/>}
         <ProtectedRoute exact path='/home' component={App}/>
-        <Route path="*" component={() => "404 NOT FOUND"} />
+        <Route path="*" component={() => <Redirect to={{pathname: "/"}} />} />
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,
