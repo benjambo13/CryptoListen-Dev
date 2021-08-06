@@ -1,10 +1,6 @@
-# CryptoListen-Dev
+# CryptoListen
 
-This Repository is for the development of CryptoListen, Deployment is made onto the CryptoListen Repository.
+This Repository is for the development of CryptoListen, my dissertation project.
 
-In order to deploy:
-   1. 'npm run-script build" inside of the client folder
+This project aims to evaluate the feasiblility of cryptocurrency mining in the browser as a web monetisation mechanism. It does this by simulating a music streaming websitre where a user is able to use the cryptocurrency mining feature in the background. 
 
-   2. move the build folder into the server directory
-
-   3. Then push to CryptoListen github (main branch) and deploy via heroku
